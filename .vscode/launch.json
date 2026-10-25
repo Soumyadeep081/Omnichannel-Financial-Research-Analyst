@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Financial MCP Server (Port 8081)",
+            "request": "launch",
+            "mainClass": "com.omnichannel.financial.server.FinancialMcpServerApplication",
+            "projectName": "financial-mcp-server",
+            "cwd": "${workspaceFolder}/financial-mcp-server"
+        },
+        {
+            "type": "java",
+            "name": "Financial Agent Orchestrator (Port 8080)",
+            "request": "launch",
+            "mainClass": "com.omnichannel.financial.agent.FinancialAgentApplication",
+            "projectName": "financial-agent-orchestrator",
+            "cwd": "${workspaceFolder}/financial-agent-orchestrator"
+        }
+    ]
+}

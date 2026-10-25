@@ -13,18 +13,13 @@ public class FinancialAgentApplication {
 
     private static final Logger log = LoggerFactory.getLogger(FinancialAgentApplication.class);
 
-    private final Environment env;
-
-    public FinancialAgentApplication(Environment env) {
-        this.env = env;
-    }
-
     public static void main(String[] args) {
         SpringApplication.run(FinancialAgentApplication.class, args);
     }
 
     @EventListener(ApplicationReadyEvent.class)
-    public void onStartup() {
+    public void onStartup(ApplicationReadyEvent event) {
+        Environment env = event.getApplicationContext().getEnvironment();
         String port = env.getProperty("server.port", "8080");
         String mcpServerUrl = env.getProperty("spring.ai.mcp.client.sse.connections.financial-db-server.url", "http://localhost:8081");
 
