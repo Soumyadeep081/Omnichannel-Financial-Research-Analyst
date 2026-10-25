@@ -140,6 +140,7 @@ sequenceDiagram
 | :--- | :---: | :--- | :--- |
 | **`financial-mcp-server`** | `8081` | Spring Boot 3.3, Spring AI MCP Server, Spring Data JPA, MySQL / H2 | Standalone MCP Server exposing read-only financial data and live web news via standard MCP HTTP+SSE |
 | **`financial-agent-orchestrator`** | `8080` | Spring Boot 3.3, Spring AI MCP Client, PDF Reader, VectorStore | Orchestrates the RAG pipeline, binds remote MCP tools over SSE, and runs the `ChatClient` investment memo generation |
+| **`frontend`** | `8080` / `5173` | Modern Vanilla HTML5, CSS3, ES6+ JS | Institutional Wall Street Equity Research dashboard, real-time pipeline tracker, audited scorecards, and interactive RAG citations |
 
 ---
 
@@ -190,6 +191,20 @@ This repository includes pre-configured launch configurations in [`.vscode/launc
 1. Press `Ctrl + Shift + D` to open the **Run & Debug** panel.
 2. Select **`Financial MCP Server (Port 8081)`** and press `F5`.
 3. Select **`Financial Agent Orchestrator (Port 8080)`** and press `F5`.
+
+---
+
+## 🖥️ Interactive Wall Street Web Dashboard
+
+The platform includes an **institutional-grade Web Dashboard** featuring live ticker switching, real-time Tri-Pillar orchestration tracking, audited scorecards, SEC filing citations, peer benchmarking, and one-click PDF export:
+
+- **Option A (Spring Boot Embedded):** Open **`http://localhost:8080`** once `financial-agent-orchestrator` is running.
+- **Option B (Standalone Dev Server):**
+  ```powershell
+  cd frontend
+  npm run dev
+  ```
+  Open **`http://localhost:5173`**.
 
 ---
 

@@ -1,0 +1,19 @@
+{
+  "name": "omnichannel-financial-research-analyst-frontend",
+  "version": "1.0.0",
+  "description": "Institutional-Grade Equity Research UI synthesizing MySQL MCP and Spring AI RAG",
+  "scripts": {
+    "dev": "npx -y serve . -l 5173",
+    "start": "npx -y serve . -l 3000",
+    "serve": "npx -y serve ."
+  },
+  "keywords": [
+    "financial-analyst",
+    "mcp",
+    "model-context-protocol",
+    "spring-ai",
+    "equity-research"
+  ],
+  "author": "Omnichannel Research",
+  "license": "Apache-2.0"
+}
