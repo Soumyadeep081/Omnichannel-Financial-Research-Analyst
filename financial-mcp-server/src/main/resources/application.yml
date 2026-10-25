@@ -1,0 +1,56 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: financial-mcp-server
+
+  # Database Configuration
+  # By default, will attempt connection to local MySQL. If not running, H2 embedded mode activates.
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:h2:mem:financial_db;DB_CLOSE_DELAY=-1;MODE=MySQL}
+    driver-class-name: ${SPRING_DATASOURCE_DRIVER:org.h2.Driver}
+    username: ${SPRING_DATASOURCE_USERNAME:sa}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+    # Production MySQL configuration example:
+    # url: jdbc:mysql://localhost:3306/financial_db?createDatabaseIfNotExist=true&useSSL=false
+    # driver-class-name: com.mysql.cj.jdbc.Driver
+    # username: root
+    # password: rootpassword
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:data.sql
+
+  # Spring AI Model Context Protocol (MCP) Server Configuration
+  ai:
+    mcp:
+      server:
+        name: financial-database-mcp-server
+        version: 1.0.0
+        type: SYNC
+        webmvc:
+          enabled: true
+          sse-endpoint: /mcp/sse
+          message-endpoint: /mcp/message
+
+# Secondary search tool configuration
+app:
+  tools:
+    tavily-api-key: ${TAVILY_API_KEY:}
+
+logging:
+  level:
+    com.omnichannel.financial.server: DEBUG
+    org.springframework.ai.mcp: DEBUG
+    org.springframework.web.servlet.mvc.method.annotation.SseEmitter: INFO

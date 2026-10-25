@@ -1,0 +1,51 @@
+APPLE INC. (AAPL) - THIRD QUARTER FISCAL 2024 EARNINGS CONFERENCE CALL
+Date: August 1, 2024
+Participants:
+- Tim Cook, Chief Executive Officer
+- Luca Maestri, Chief Financial Officer
+- Institutional Sell-Side Analysts (Morgan Stanley, Goldman Sachs, JPMorgan, Bank of America)
+
+---
+PREPARED REMARKS:
+
+Tim Cook (CEO):
+"Good afternoon, everyone, and thank you for joining us. Today, Apple is reporting revenue of $85.8 billion for the June quarter, up 5% from a year ago and better than our expectations. We also set a new June quarter record for diluted earnings per share at $1.40, up 11% year over year.
+
+During the quarter, our active installed base of devices reached a new all-time high across all products and all geographic segments, thanks to very high levels of customer satisfaction and customer loyalty. 
+
+At our Worldwide Developers Conference in June, we were thrilled to announce Apple Intelligence, an incredible personal intelligence system that puts powerful, intuitive generative models right at the core of iPhone, iPad, and Mac. Apple Intelligence understands personal context to deliver intelligence that is helpful and relevant, while setting a new standard for privacy with Private Cloud Compute. We are excited about the value this will bring to users and the upgrade cycle it will spur across our product ecosystem.
+
+Turning to our operational performance, Services generated an all-time revenue record of $24.2 billion, up 14% year over year. We saw double-digit growth across both developed and emerging markets, and set all-time records in many categories including Cloud, App Store, Advertising, and Apple Pay.
+
+In Products, revenue was $61.6 billion, up 2% from last year. iPhone revenue was $39.3 billion, down slightly by 1% year over year, but on a constant currency basis, iPhone grew year over year. We saw especially strong performance in markets like Latin America, the Middle East, India, and South Asia.
+
+Mac revenue was $7.0 billion, up 2% year over year, driven by the popularity of our new M3-powered MacBook Air. iPad generated $7.2 billion in revenue, up 24% year over year, reflecting tremendous customer response to our completely redesigned M4 iPad Pro and new iPad Air models.
+
+Wearables, Home, and Accessories revenue was $8.1 billion, down 2% year over year, facing difficult comparisons against prior year hardware launches."
+
+Luca Maestri (CFO):
+"Thank you, Tim. Company gross margin was 46.3%, near the high end of our guidance range. Products gross margin was 35.3%, and Services gross margin reached 74.0%, up 60 basis points sequentially due to favorable portfolio mix.
+
+Operating expenses were $14.3 billion, well within our guidance range. Net income was $21.4 billion, and diluted earnings per share was $1.40.
+
+Cash flow from operations was exceptionally strong at $28.9 billion. We returned over $32 billion to shareholders during the quarter, including $3.9 billion in dividends and $26 billion through open market repurchases of 139 million Apple shares. We ended the quarter with $101.3 billion in total debt and $61.8 billion in cash and marketable securities, leaving us with a net debt position as we progress toward our long-term goal of being net cash neutral over time.
+
+Geographically, Americas revenue was up 7%, Europe grew 8%, and Rest of Asia Pacific was up 13%. In Greater China, revenue was $14.7 billion, down 6.5% compared to a year ago. More than half of that decline was driven by currency headwinds (the strength of the US dollar). Importantly, on a constant-currency basis, Greater China revenue declined less than 3%, and our installed base of active iPhones reached an all-time record in Mainland China, reinforced by strong trade-in momentum and high repurchase intent.
+
+GUIDANCE FOR FOURTH FISCAL QUARTER:
+For the September quarter, we expect total company year-over-year revenue growth to be similar to what we reported in the June quarter (+5%). We anticipate Services growth to continue at a double-digit rate similar to the first three quarters of this fiscal year. We expect gross margin to be between 45.5% and 46.5%, and operating expenses between $14.2 billion and $14.4 billion."
+
+---
+ANALYST QUESTION & ANSWER HIGHLIGHTS:
+
+Erik Woodring (Morgan Stanley):
+"Tim, could you elaborate on how you envision the monetization of Apple Intelligence, and whether you anticipate it stimulating a multi-year iPhone hardware upgrade cycle?"
+
+Tim Cook:
+"Erik, we are very excited about Apple Intelligence. Because of the compute and neural engine requirements, Apple Intelligence requires an iPhone 15 Pro, iPhone 15 Pro Max, or M-series silicon on iPad and Mac. When you look at our installed base of over 2.2 billion active devices, a very significant percentage of users have devices that precede these silicon generations. So we see Apple Intelligence as a compelling catalyst and reason for customers to upgrade."
+
+Wamsi Mohan (Bank of America):
+"Luca, could you provide more color on the dynamics in Greater China? How should we think about competitive dynamics with Huawei and local Android OEMs?"
+
+Luca Maestri:
+"Wamsi, the competitive environment in China is intense, no question. However, when we look at the results from the June quarter, the decline moderated significantly compared to the first half of the fiscal year. In fact, according to third-party data from Kantar, the top three best-selling smartphones in urban China during the quarter were iPhones."
