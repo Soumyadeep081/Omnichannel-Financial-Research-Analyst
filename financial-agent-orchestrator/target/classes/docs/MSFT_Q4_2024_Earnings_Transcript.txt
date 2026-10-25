@@ -1,0 +1,22 @@
+MICROSOFT CORPORATION (MSFT) - FOURTH QUARTER FISCAL 2024 EARNINGS CONFERENCE CALL
+Date: July 30, 2024
+Participants:
+- Satya Nadella, Chairman and Chief Executive Officer
+- Amy Hood, Executive Vice President and Chief Financial Officer
+
+---
+EXECUTIVE HIGHLIGHTS & FINANCIAL METRICS:
+
+Satya Nadella (CEO):
+"We finished the fiscal year with strong results, highlighted by record Microsoft Cloud revenue of $36.8 billion, up 21% year over year. As a company, revenue was $64.7 billion, up 15% year over year, and operating income was $27.9 billion, up 15%.
+
+Our AI business is already on track to exceed an annual revenue run rate of $10 billion in the coming year, making it the fastest-growing business in our history. Azure AI customers grew to over 60,000, up nearly 60% year over year. We are infusing AI across every layer of our tech stack, from infrastructure to Copilots."
+
+Amy Hood (CFO):
+"Revenue was $64.7 billion, up 15% (up 16% in constant currency). Diluted earnings per share was $2.95, up 10% (up 11% in constant currency).
+Gross margin was 69.8%, and operating margin was 43.1%. 
+
+Capital expenditures including finance leases were $19.0 billion, driven by cloud demand and investments in AI infrastructure. Cash flow from operations was $37.2 billion, and free cash flow was $23.3 billion, up 18% year over year.
+We returned $8.4 billion to shareholders in the quarter through share repurchases and dividends.
+
+For Q1 of fiscal 2025, we expect Microsoft Cloud gross margin percentage to remain roughly 70%, with Azure revenue growth expected to be 28% to 29% in constant currency."

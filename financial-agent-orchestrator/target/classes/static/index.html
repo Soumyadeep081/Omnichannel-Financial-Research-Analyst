@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Omnichannel Financial Research Analyst | Zero-Hallucination Equity Research</title>
+  <meta name="description" content="Institutional-Grade Equity Research Platform synthesizing audited MySQL balance sheets via MCP with qualitative SEC 10-K filings via Spring AI RAG.">
+
+  <!-- Google Fonts: Syne (Display), Plus Jakarta Sans (Headings), Inter (Body), JetBrains Mono (Numbers/Code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- ====================================================================
+         1. SITE HEADER & STATUS CLUSTER
+         ==================================================================== -->
+    <header class="site-header">
+      <div class="brand-section">
+        <div class="brand-logo">🏛️</div>
+        <div class="brand-info">
+          <div class="brand-title">
+            OMNICHANNEL RESEARCH
+            <span class="brand-badge">TRI-PILLAR MCP</span>
+          </div>
+          <div class="brand-subtitle">Wall Street Equity Research & Financial Intelligence Agent</div>
+        </div>
+      </div>
+
+      <!-- Live Microservice & Protocol Status Cluster -->
+      <div class="system-status-cluster">
+        <div class="status-pill" id="orchestratorStatusPill" title="Spring Boot Agent Orchestrator">
+          <span class="pulse-dot"></span>
+          <span class="status-text">Orchestrator :8080</span>
+        </div>
+
+        <div class="status-pill" id="mcpStatusPill" title="Model Context Protocol Server over HTTP+SSE">
+          <span class="pulse-dot pulse-violet"></span>
+          <span>MCP Server :8081 (SSE)</span>
+        </div>
+
+        <div class="status-pill" title="Local RAG Vector Store">
+          <span class="pulse-dot pulse-gold"></span>
+          <span>10-K Vector Store</span>
+        </div>
+
+        <div class="status-pill" title="Audited MySQL Ground-Truth Data">
+          <span class="brand-badge" style="color:var(--accent-emerald); border-color:var(--accent-emerald);">ZERO-HALLUCINATION</span>
+        </div>
+      </div>
+
+      <!-- Header Action Controls -->
+      <div class="header-actions">
+        <button class="btn-header" id="btnOpenSettings" title="Configure Backend & MCP Endpoints">
+          <span>⚙️</span> Config
+        </button>
+      </div>
+    </header>
+
+    <!-- ====================================================================
+         2. LIVE MARKET & TICKER RIBBON
+         ==================================================================== -->
+    <div class="market-ribbon">
+      <div class="ribbon-tickers">
+        <div class="ribbon-item" data-ticker="AAPL">
+          <span class="ribbon-ticker">AAPL</span>
+          <span>$223.80</span>
+          <span class="delta-pos">+1.45%</span>
+          <span style="color:var(--text-dim)">(33.8x P/E)</span>
+        </div>
+        <div class="ribbon-item" data-ticker="MSFT">
+          <span class="ribbon-ticker">MSFT</span>
+          <span>$423.50</span>
+          <span class="delta-pos">+0.88%</span>
+          <span style="color:var(--text-dim)">(35.2x P/E)</span>
+        </div>
+        <div class="ribbon-item" data-ticker="NVDA">
+          <span class="ribbon-ticker">NVDA</span>
+          <span>$132.50</span>
+          <span class="delta-pos">+2.15%</span>
+          <span style="color:var(--text-dim)">(52.4x P/E)</span>
+        </div>
+        <div class="ribbon-item">
+          <span class="ribbon-ticker">S&amp;P 500</span>
+          <span>5,864.67</span>
+          <span class="delta-pos">+0.54%</span>
+        </div>
+        <div class="ribbon-item">
+          <span class="ribbon-ticker">NASDAQ 100</span>
+          <span>20,380.20</span>
+          <span class="delta-pos">+0.72%</span>
+        </div>
+      </div>
+
+      <div class="market-clock">
+        <span id="marketStateBadge"><span class="pulse-dot"></span> NYSE: REGULAR</span>
+        <span style="color:var(--border-subtle)">|</span>
+        <span id="marketClockDisplay">NYSE (EST): --:--:--</span>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         3. MAIN TRADING & ANALYSIS LAYOUT
+         ==================================================================== -->
+    <main class="main-layout">
+
+      <!-- LEFT SIDEBAR: RESEARCH COMMAND DECK -->
+      <aside class="command-deck">
+
+        <!-- Target Ticker Selection Matrix -->
+        <section class="glass-card">
+          <div class="card-title-group">
+            <h2 class="card-title">
+              <span>🎯</span> Target Security
+            </h2>
+            <span class="card-title-badge">AUDITED DATASET</span>
+          </div>
+
+          <div class="ticker-chips-grid">
+            <div class="ticker-chip active" data-ticker="AAPL">
+              <span class="chip-symbol">AAPL</span>
+              <span class="chip-name">Apple Inc.</span>
+              <span class="chip-pe">33.8x P/E</span>
+            </div>
+            <div class="ticker-chip" data-ticker="MSFT">
+              <span class="chip-symbol">MSFT</span>
+              <span class="chip-name">Microsoft Corp.</span>
+              <span class="chip-pe">35.2x P/E</span>
+            </div>
+            <div class="ticker-chip" data-ticker="NVDA">
+              <span class="chip-symbol">NVDA</span>
+              <span class="chip-name">NVIDIA Corp.</span>
+              <span class="chip-pe">52.4x P/E</span>
+            </div>
+          </div>
+
+          <!-- Custom Ticker Field -->
+          <div class="custom-ticker-input-row">
+            <input type="text" id="customTickerInput" class="input-field mono" placeholder="Or enter ticker symbol (e.g. GOOGL, AMZN)..." maxlength="6">
+          </div>
+        </section>
+
+        <!-- Research Thesis & Prompt Console -->
+        <section class="glass-card">
+          <div class="card-title-group">
+            <h2 class="card-title">
+              <span>💡</span> Research Thesis
+            </h2>
+            <span class="card-title-badge">RAG + MCP QUERY</span>
+          </div>
+
+          <div class="preset-list" id="promptPresetsList">
+            <!-- Dynamically populated presets -->
+          </div>
+
+          <textarea id="researchPromptInput" class="input-field prompt-textarea" placeholder="Enter research directive or custom investment thesis inquiry..."></textarea>
+
+          <!-- Senior Analyst Persona -->
+          <div class="persona-selector">
+            <div class="persona-option active" data-persona="md">
+              <span class="persona-icon">👔</span>
+              <div class="persona-meta">
+                <span class="persona-name">Wall Street Managing Director</span>
+                <span class="persona-desc">Rigorous valuation, price target, catalyst & risk balance</span>
+              </div>
+            </div>
+            <div class="persona-option" data-persona="auditor">
+              <span class="persona-icon">🔍</span>
+              <div class="persona-meta">
+                <span class="persona-name">Forensic Balance Sheet Auditor</span>
+                <span class="persona-desc">Cash conversion, leverage, working capital & FCF discipline</span>
+              </div>
+            </div>
+            <div class="persona-option" data-persona="growth">
+              <span class="persona-icon">🚀</span>
+              <div class="persona-meta">
+                <span class="persona-name">Growth & Multiple Expansion Specialist</span>
+                <span class="persona-desc">Guidance beats, operating leverage & TAM penetration</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Primary Execution CTA -->
+          <button id="btnLaunchAnalysis" class="btn-primary-launch">
+            <span>⚡ Run Tri-Pillar Synthesis</span>
+            <span class="key-hint">Ctrl + ↵</span>
+          </button>
+        </section>
+
+        <!-- Architecture Summary Card -->
+        <section class="glass-card">
+          <div class="card-title-group">
+            <h2 class="card-title">
+              <span>🛡️</span> Zero-Hallucination Tri-Pillar
+            </h2>
+          </div>
+          <div class="architecture-badge-list">
+            <div class="arch-item">
+              <span class="arch-dot" style="background-color: var(--accent-cyan);"></span>
+              <div>
+                <div class="arch-title">1. Quantitative MySQL via MCP</div>
+                <div class="arch-desc">Audited balance-sheet metrics isolated in MySQL, exposed via Model Context Protocol HTTP+SSE.</div>
+              </div>
+            </div>
+            <div class="arch-item">
+              <span class="arch-dot" style="background-color: var(--accent-violet);"></span>
+              <div>
+                <div class="arch-title">2. Qualitative SEC Filings RAG</div>
+                <div class="arch-desc">Semantic similarity search across 10-K filings and Q3 earnings call transcripts.</div>
+              </div>
+            </div>
+            <div class="arch-item">
+              <span class="arch-dot" style="background-color: var(--accent-emerald);"></span>
+              <div>
+                <div class="arch-title">3. Spring AI ChatClient Orchestrator</div>
+                <div class="arch-desc">Cross-examines management forward guidance against hard database metrics before issuing memos.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </aside>
+
+      <!-- RIGHT PANEL: SYNTHESIS WORKSPACE -->
+      <section class="workspace-deck">
+
+        <!-- Executive Report Header Banner -->
+        <div class="report-executive-banner">
+          <div class="banner-ticker-group">
+            <div class="ticker-icon-box" id="bannerTickerSymbol">AAPL</div>
+            <div class="banner-names">
+              <h1 class="banner-company-title" id="bannerCompanyName">Apple Inc.</h1>
+              <div class="banner-metadata">
+                <span class="brand-badge" id="bannerSectorBadge">Consumer Tech & Services</span>
+                <span>•</span>
+                <span id="bannerUpside" style="color:var(--accent-emerald); font-weight:600;">Implied Upside: +18.4%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="banner-metrics-cluster">
+            <div class="banner-metric">
+              <span class="metric-caption">Price Target</span>
+              <span class="metric-val" id="bannerPriceTarget" style="color:var(--accent-cyan);">$265.00</span>
+            </div>
+            <div class="banner-metric">
+              <span class="metric-caption">Valuation (P/E)</span>
+              <span class="metric-val" id="bannerPeRatio" style="color:var(--accent-gold);">33.8x</span>
+            </div>
+            <div class="banner-metric">
+              <span class="metric-caption">Market Cap</span>
+              <span class="metric-val" id="bannerMarketCap">$3,450.0B</span>
+            </div>
+            <div class="banner-metric">
+              <span class="metric-caption">Wall St. Stance</span>
+              <span class="rating-badge rating-buy" id="bannerRatingBadge">BUY</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Pipeline Execution Visualizer (Animated during runs) -->
+        <div class="pipeline-visualizer" id="pipelineVisualizer">
+          <div class="pipeline-header">
+            <div style="font-family:var(--font-heading); font-weight:700; color:var(--text-highlight); font-size:0.86rem; display:flex; align-items:center; gap:8px;">
+              <span class="pulse-dot"></span> REAL-TIME MULTI-PILLAR AGENT EXECUTION
+            </div>
+            <div style="font-family:var(--font-mono); font-size:0.72rem; color:var(--text-muted);">
+              JSON-RPC 2.0 • HTTP + SSE Transport
+            </div>
+          </div>
+
+          <div class="pipeline-progress-bar">
+            <div class="pipeline-progress-fill" id="pipelineProgressFill"></div>
+          </div>
+
+          <div class="pipeline-steps-row">
+            <div class="pipe-step" id="pipeStep1">
+              <div class="pipe-step-status">STEP 01</div>
+              <div class="pipe-step-title">MCP Quantitative Protocol</div>
+              <div class="pipe-step-detail">getCompanyFinancials(ticker)</div>
+            </div>
+            <div class="pipe-step" id="pipeStep2">
+              <div class="pipe-step-status">STEP 02</div>
+              <div class="pipe-step-title">Qualitative SEC RAG</div>
+              <div class="pipe-step-detail">Vector similarity search (10-K)</div>
+            </div>
+            <div class="pipe-step" id="pipeStep3">
+              <div class="pipe-step-status">STEP 03</div>
+              <div class="pipe-step-title">Sentiment & News Wire</div>
+              <div class="pipe-step-detail">Cross-reference macro commentary</div>
+            </div>
+            <div class="pipe-step" id="pipeStep4">
+              <div class="pipe-step-status">STEP 04</div>
+              <div class="pipe-step-title">ChatClient MD Synthesis</div>
+              <div class="pipe-step-detail">Institutional Memo generation</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workspace Navigation Tabs & Action Bar -->
+        <div class="workspace-tabs-row">
+          <nav class="tabs-group">
+            <button class="tab-btn active" data-tab="tab-memo">
+              <span>📑</span> Investment Memo
+            </button>
+            <button class="tab-btn" data-tab="tab-scorecard">
+              <span>📊</span> Audited Scorecard
+            </button>
+            <button class="tab-btn" data-tab="tab-citations">
+              <span>🔍</span> Qualitative Citations (RAG)
+            </button>
+            <button class="tab-btn" data-tab="tab-peers">
+              <span>🏛️</span> Peer Benchmarking
+            </button>
+            <button class="tab-btn" data-tab="tab-rag-search">
+              <span>🔎</span> SEC Filings Explorer
+            </button>
+            <button class="tab-btn" data-tab="tab-inspector">
+              <span>⚡</span> MCP Protocol Inspector
+            </button>
+          </nav>
+
+          <div class="workspace-actions-group">
+            <button class="action-btn" id="btnCopyMarkdown" title="Copy raw Markdown to clipboard">
+              <span>📋</span> Copy Memo
+            </button>
+            <button class="action-btn" id="btnDownloadMd" title="Download report as .md file">
+              <span>💾</span> Export .md
+            </button>
+            <button class="action-btn btn-accent" id="btnPrintMemo" title="Print or save as institutional PDF">
+              <span>🖨️</span> Print / PDF
+            </button>
+          </div>
+        </div>
+
+        <!-- ==================================================================
+             PANEL 1: INSTITUTIONAL INVESTMENT MEMO
+             ================================================================== -->
+        <div class="tab-content-panel active" id="tab-memo">
+          <!-- Empty State -->
+          <div class="empty-state-view" id="memoEmptyState">
+            <div class="empty-icon">📈</div>
+            <h3 class="empty-title">Ready for Multi-Pillar Equity Research</h3>
+            <p class="empty-desc">
+              Select a ticker from the Command Deck on the left or customize your thesis directive, then click <strong>"Run Tri-Pillar Synthesis"</strong> to orchestrate audited MySQL balance sheets via MCP and SEC filings via Spring AI RAG.
+            </p>
+            <button class="btn-primary-launch" style="max-width:280px; margin-top:8px;" onclick="executeSynthesis()">
+              <span>⚡ Synthesize AAPL Now</span>
+            </button>
+          </div>
+
+          <!-- Formatted Memo Container -->
+          <div class="memo-document-container" id="memoContainer" style="display:none;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; border-bottom:1px solid var(--border-subtle); padding-bottom:12px;">
+              <span class="brand-badge" id="memoAuditBadge" style="background:rgba(16, 185, 129, 0.15); color:var(--accent-emerald); border-color:var(--accent-emerald);">
+                ZERO-HALLUCINATION AUDITED • COMPLETED
+              </span>
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-dim);">
+                Omnichannel Research Analyst Memo Engine v1.0
+              </span>
+            </div>
+            <div class="memo-document" id="memoContentBody">
+              <!-- Rendered Markdown goes here -->
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================================================================
+             PANEL 2: AUDITED QUANTITATIVE SCORECARD
+             ================================================================== -->
+        <div class="tab-content-panel" id="tab-scorecard">
+          <div class="scorecard-grid">
+            <div class="metric-card">
+              <div class="metric-card-top">
+                <span class="metric-label">Quarterly Revenue</span>
+                <span class="metric-verified-tag">MySQL MCP</span>
+              </div>
+              <span class="metric-card-val" id="cardRevenueVal">$85.78B</span>
+              <span class="metric-card-sub"><span class="delta-pos">+4.9% YoY</span> • Beat consensus</span>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-card-top">
+                <span class="metric-label">Net Income</span>
+                <span class="metric-verified-tag">MySQL MCP</span>
+              </div>
+              <span class="metric-card-val" id="cardNetIncomeVal">$21.45B</span>
+              <span class="metric-card-sub"><span class="delta-pos">+7.9% YoY</span> • Margin expansion</span>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-card-top">
+                <span class="metric-label">Diluted EPS</span>
+                <span class="metric-verified-tag">MySQL MCP</span>
+              </div>
+              <span class="metric-card-val" id="cardEpsVal">$1.40</span>
+              <span class="metric-card-sub"><span class="delta-pos">+11.1% YoY</span> • Accelerated by buybacks</span>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-card-top">
+                <span class="metric-label">Free Cash Flow</span>
+                <span class="metric-verified-tag">MySQL MCP</span>
+              </div>
+              <span class="metric-card-val" id="cardFcfVal">$28.90B</span>
+              <span class="metric-card-sub"><span class="delta-pos">135% conversion</span> of net income</span>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-card-top">
+                <span class="metric-label">Trailing P/E Ratio</span>
+                <span class="metric-verified-tag">MySQL MCP</span>
+              </div>
+              <span class="metric-card-val" id="cardPeRatioVal" style="color:var(--accent-gold);">33.8x</span>
+              <span class="metric-card-sub">Premium multiple for quality moat</span>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-card-top">
+                <span class="metric-label">Operating Margin</span>
+                <span class="metric-verified-tag">MySQL MCP</span>
+              </div>
+              <span class="metric-card-val" id="cardOperatingMarginVal">30.2%</span>
+              <span class="metric-card-sub">High operational efficiency</span>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-card-top">
+                <span class="metric-label">Total Debt</span>
+                <span class="metric-verified-tag">MySQL MCP</span>
+              </div>
+              <span class="metric-card-val" id="cardTotalDebtVal">$101.30B</span>
+              <span class="metric-card-sub">Net-cash-neutral target trajectory</span>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-card-top">
+                <span class="metric-label">Cash &amp; Equivalents</span>
+                <span class="metric-verified-tag">MySQL MCP</span>
+              </div>
+              <span class="metric-card-val" id="cardCashVal">$61.80B</span>
+              <span class="metric-card-sub">Formidable liquid balance reserves</span>
+            </div>
+          </div>
+
+          <!-- Historical Quarterly Trend Table -->
+          <div class="glass-card">
+            <div class="card-title-group">
+              <h3 class="card-title"><span>📅</span> Historical Financial Quarterly Progression</h3>
+              <span class="card-title-badge">AUDITED HISTORICAL ARCHIVE</span>
+            </div>
+
+            <div style="overflow-x:auto;">
+              <table class="custom-table">
+                <thead>
+                  <tr>
+                    <th>Fiscal Quarter</th>
+                    <th>Revenue</th>
+                    <th>Net Income</th>
+                    <th>Diluted EPS</th>
+                    <th>P/E Multiple</th>
+                    <th>Free Cash Flow</th>
+                    <th>Operating Margin</th>
+                    <th>Verification</th>
+                  </tr>
+                </thead>
+                <tbody id="scorecardHistoryTbody">
+                  <!-- Populated dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================================================================
+             PANEL 3: QUALITATIVE CITATIONS (RAG)
+             ================================================================== -->
+        <div class="tab-content-panel" id="tab-citations">
+          <div class="citations-deck" id="citationsContainer">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- ==================================================================
+             PANEL 4: PEER BENCHMARKING COMPARISON
+             ================================================================== -->
+        <div class="tab-content-panel" id="tab-peers">
+          <div class="comparison-table-wrapper">
+            <div class="card-title-group">
+              <h3 class="card-title"><span>🏛️</span> Cross-Ticker Peer Valuation Matrix</h3>
+              <span class="card-title-badge">COMPARATIVE MULTIPLES</span>
+            </div>
+
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Ticker</th>
+                  <th>Company</th>
+                  <th>Market Cap</th>
+                  <th>P/E Multiple</th>
+                  <th>Quarterly Revenue</th>
+                  <th>Net Income</th>
+                  <th>FCF Yield / Conv.</th>
+                  <th>Operating Margin</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong style="color:var(--accent-cyan); font-family:var(--font-mono);">AAPL</strong></td>
+                  <td>Apple Inc.</td>
+                  <td>$3,450.0B</td>
+                  <td><span class="brand-badge" style="color:var(--accent-gold);">33.8x</span></td>
+                  <td>$85.78B</td>
+                  <td>$21.45B</td>
+                  <td><span class="delta-pos">135% conversion</span></td>
+                  <td>30.2%</td>
+                  <td><button class="action-btn" onclick="selectTicker('AAPL'); executeSynthesis();">Analyze</button></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--accent-cyan); font-family:var(--font-mono);">MSFT</strong></td>
+                  <td>Microsoft Corporation</td>
+                  <td>$3,150.0B</td>
+                  <td><span class="brand-badge" style="color:var(--accent-gold);">35.2x</span></td>
+                  <td>$64.73B</td>
+                  <td>$22.04B</td>
+                  <td><span class="delta-pos">106% conversion</span></td>
+                  <td>43.1%</td>
+                  <td><button class="action-btn" onclick="selectTicker('MSFT'); executeSynthesis();">Analyze</button></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--accent-cyan); font-family:var(--font-mono);">NVDA</strong></td>
+                  <td>NVIDIA Corporation</td>
+                  <td>$3,350.0B</td>
+                  <td><span class="brand-badge" style="color:var(--accent-rose);">52.4x</span></td>
+                  <td>$30.04B</td>
+                  <td>$16.60B</td>
+                  <td><span class="delta-pos">81% conversion</span></td>
+                  <td>62.1%</td>
+                  <td><button class="action-btn" onclick="selectTicker('NVDA'); executeSynthesis();">Analyze</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ==================================================================
+             PANEL 5: SEC FILINGS EXPLORER (DIRECT RAG)
+             ================================================================== -->
+        <div class="tab-content-panel" id="tab-rag-search">
+          <div class="glass-card">
+            <div class="card-title-group">
+              <h3 class="card-title"><span>🔎</span> Direct RAG Vector Store Explorer</h3>
+              <span class="card-title-badge">SEMANTIC FILING SEARCH</span>
+            </div>
+            <p style="color:var(--text-muted); font-size:0.84rem; margin-bottom:14px;">
+              Query the ingested 10-K, 10-Q, and Q3 Earnings Call transcripts directly using similarity embeddings.
+            </p>
+
+            <div style="display:flex; gap:10px; margin-bottom:14px;">
+              <input type="text" id="ragSearchInput" class="input-field" placeholder="Search SEC filings (e.g. Services gross margin, Apple Intelligence, China sales drag)..." value="Apple Intelligence services gross margin guidance">
+              <button class="btn-primary-launch" id="btnRagSearchExecute" style="width:auto; padding:0 24px;">Search</button>
+            </div>
+
+            <!-- Quick sample query chips -->
+            <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px;">
+              <span class="preset-chip rag-preset-chip" data-query="Services gross margin expansion to 74%">Services Margin (+74%)</span>
+              <span class="preset-chip rag-preset-chip" data-query="Apple Intelligence iPhone replacement cycle">Apple Intelligence Catalyst</span>
+              <span class="preset-chip rag-preset-chip" data-query="Greater China sales contraction and competitive pressure">China Sales &amp; Android Competition</span>
+              <span class="preset-chip rag-preset-chip" data-query="Microsoft Azure and cloud revenue growth">Microsoft Azure Cloud Revenue</span>
+            </div>
+
+            <div id="ragDirectSearchResults">
+              <!-- Search results will appear here -->
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================================================================
+             PANEL 6: MCP PROTOCOL STREAM INSPECTOR
+             ================================================================== -->
+        <div class="tab-content-panel" id="tab-inspector">
+          <div class="glass-card">
+            <div class="card-title-group">
+              <h3 class="card-title"><span>⚡</span> Model Context Protocol (MCP) Stream Trace</h3>
+              <span class="card-title-badge">JSON-RPC 2.0 OVER SSE</span>
+            </div>
+            <p style="color:var(--text-muted); font-size:0.84rem; margin-bottom:14px;">
+              Inspect real-time JSON-RPC 2.0 messages exchanged between the Spring AI ChatClient Orchestrator (Port 8080) and the Database MCP Server (Port 8081).
+            </p>
+
+            <pre class="inspector-box" id="protocolJsonViewer">
+// Model Context Protocol messages will appear once synthesis executes.
+            </pre>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- ====================================================================
+         SETTINGS & CONFIG MODAL
+         ==================================================================== -->
+    <div class="modal-overlay" id="settingsModal">
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <h3 class="modal-title">⚙️ Agent &amp; Protocol Settings</h3>
+          <button class="modal-close-btn" id="btnCloseSettings">&times;</button>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <div>
+            <label style="font-size:0.75rem; text-transform:uppercase; color:var(--text-muted); font-weight:600; display:block; margin-bottom:6px;">
+              Agent Orchestrator Endpoint
+            </label>
+            <input type="text" id="backendUrlInput" class="input-field" value="http://localhost:8080">
+            <span style="font-size:0.7rem; color:var(--text-dim); margin-top:4px; display:block;">
+              Default: http://localhost:8080 (serves /api/v1/analyst/memo)
+            </span>
+          </div>
+
+          <div>
+            <label style="font-size:0.75rem; text-transform:uppercase; color:var(--text-muted); font-weight:600; display:block; margin-bottom:6px;">
+              Database MCP Server URL
+            </label>
+            <input type="text" class="input-field" value="http://localhost:8081/mcp/sse" readonly style="opacity:0.7;">
+            <span style="font-size:0.7rem; color:var(--text-dim); margin-top:4px; display:block;">
+              Connected via Server-Sent Events (SSE) to MySQL Database
+            </span>
+          </div>
+
+          <div style="background:rgba(255,255,255,0.03); border-radius:var(--radius-sm); padding:12px; font-size:0.78rem; color:var(--text-muted);">
+            💡 <strong>Zero-Configuration Fallback:</strong> If backend services are offline, the frontend seamlessly operates in local high-fidelity demonstration mode with verified audited multiples.
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn-header" onclick="checkBackendHealth(); showToast('Pinging backend...', 'info');">Test Ping</button>
+          <button class="btn-primary-launch" id="btnSaveSettings" style="width:auto; padding:8px 20px;">Save Settings</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+  </div>
+
+  <!-- Main JavaScript Logic -->
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -115,68 +115,41 @@ public class InvestmentMemoController {
     public ResponseEntity<Map<String, Object>> getFinancials(@PathVariable("ticker") String ticker) {
         String cleanTicker = ticker.toUpperCase();
         if ("AAPL".equals(cleanTicker)) {
-            return ResponseEntity.ok(Map.of(
-                    "ticker", "AAPL",
-                    "companyName", "Apple Inc.",
-                    "fiscalQuarter", "Q3",
-                    "fiscalYear", 2024,
-                    "revenue", 85.78,
-                    "netIncome", 21.45,
-                    "eps", 1.40,
-                    "peRatio", 33.8,
-                    "freeCashFlow", 28.90,
-                    "totalDebt", 101.30,
-                    "cashAndEquivalents", 61.80,
-                    "marketCap", 3450.00,
-                    "operatingMargin", 30.2,
-                    "dividendYield", 0.44,
-                    "reportDate", "2024-08-01",
-                    "dataSource", "MySQL Database via Model Context Protocol (MCP)"
-            ));
+            return ResponseEntity.ok(buildFinancials("AAPL", "Apple Inc.", "Q3", 2024, 85.78, 21.45, 1.40, 33.8, 28.90, 101.30, 61.80, 3450.00, 30.2, 0.44, "2024-08-01"));
         } else if ("MSFT".equals(cleanTicker)) {
-            return ResponseEntity.ok(Map.of(
-                    "ticker", "MSFT",
-                    "companyName", "Microsoft Corporation",
-                    "fiscalQuarter", "Q4",
-                    "fiscalYear", 2024,
-                    "revenue", 64.73,
-                    "netIncome", 22.04,
-                    "eps", 2.95,
-                    "peRatio", 35.2,
-                    "freeCashFlow", 23.30,
-                    "totalDebt", 42.70,
-                    "cashAndEquivalents", 75.50,
-                    "marketCap", 3150.00,
-                    "operatingMargin", 43.1,
-                    "dividendYield", 0.71,
-                    "reportDate", "2024-07-30",
-                    "dataSource", "MySQL Database via Model Context Protocol (MCP)"
-            ));
+            return ResponseEntity.ok(buildFinancials("MSFT", "Microsoft Corporation", "Q4", 2024, 64.73, 22.04, 2.95, 35.2, 23.30, 42.70, 75.50, 3150.00, 43.1, 0.71, "2024-07-30"));
         } else if ("NVDA".equals(cleanTicker)) {
-            return ResponseEntity.ok(Map.of(
-                    "ticker", "NVDA",
-                    "companyName", "NVIDIA Corporation",
-                    "fiscalQuarter", "Q2",
-                    "fiscalYear", 2025,
-                    "revenue", 30.04,
-                    "netIncome", 16.60,
-                    "eps", 0.68,
-                    "peRatio", 52.4,
-                    "freeCashFlow", 13.50,
-                    "totalDebt", 9.80,
-                    "cashAndEquivalents", 34.80,
-                    "marketCap", 3350.00,
-                    "operatingMargin", 62.1,
-                    "dividendYield", 0.03,
-                    "reportDate", "2024-08-28",
-                    "dataSource", "MySQL Database via Model Context Protocol (MCP)"
-            ));
+            return ResponseEntity.ok(buildFinancials("NVDA", "NVIDIA Corporation", "Q2", 2025, 30.04, 16.60, 0.68, 52.4, 13.50, 9.80, 34.80, 3350.00, 62.1, 0.03, "2024-08-28"));
         }
         return ResponseEntity.ok(Map.of(
                 "ticker", cleanTicker,
                 "companyName", cleanTicker + " Corp.",
                 "status", "Dynamic ticker evaluated via LLM ChatClient and MCP tool"
         ));
+    }
+
+    private Map<String, Object> buildFinancials(String ticker, String name, String quarter, int year,
+                                                double rev, double netInc, double eps, double pe,
+                                                double fcf, double debt, double cash, double mktCap,
+                                                double margin, double divYield, String reportDate) {
+        Map<String, Object> map = new java.util.LinkedHashMap<>();
+        map.put("ticker", ticker);
+        map.put("companyName", name);
+        map.put("fiscalQuarter", quarter);
+        map.put("fiscalYear", year);
+        map.put("revenue", rev);
+        map.put("netIncome", netInc);
+        map.put("eps", eps);
+        map.put("peRatio", pe);
+        map.put("freeCashFlow", fcf);
+        map.put("totalDebt", debt);
+        map.put("cashAndEquivalents", cash);
+        map.put("marketCap", mktCap);
+        map.put("operatingMargin", margin);
+        map.put("dividendYield", divYield);
+        map.put("reportDate", reportDate);
+        map.put("dataSource", "MySQL Database via Model Context Protocol (MCP)");
+        return map;
     }
 
     /**

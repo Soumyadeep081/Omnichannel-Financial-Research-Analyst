@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: financial-agent-orchestrator
+
+  ai:
+    # LLM Configuration (OpenAI or any OpenAI-compatible provider like Ollama, Azure, vLLM)
+    openai:
+      api-key: ${OPENAI_API_KEY:demo-key}
+      base-url: ${OPENAI_BASE_URL:https://api.openai.com}
+      chat:
+        options:
+          model: ${OPENAI_MODEL:gpt-4o}
+          temperature: 0.1 # Low temperature for factual financial analysis
+
+    # Model Context Protocol (MCP) Client Configuration
+    # Connects via HTTP + Server-Sent Events (SSE) to the Database MCP Server running on port 8081
+    mcp:
+      client:
+        enabled: true
+        name: financial-analyst-agent
+        version: 1.0.0
+        type: SYNC
+        sse:
+          connections:
+            financial-db-server:
+              url: ${MCP_SERVER_URL:http://localhost:8081}
+              sse-endpoint: /mcp/sse
+
+logging:
+  level:
+    com.omnichannel.financial.agent: DEBUG
+    org.springframework.ai.mcp: DEBUG
+    org.springframework.ai.chat.client: DEBUG

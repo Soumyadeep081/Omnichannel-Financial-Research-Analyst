@@ -14,7 +14,9 @@ if (Get-Command mvn -ErrorAction SilentlyContinue) {
         "$env:ProgramFiles\apache-maven*\bin\mvn.cmd",
         "$env:LOCALAPPDATA\Programs\apache-maven*\bin\mvn.cmd",
         "C:\Program Files\Maven*\bin\mvn.cmd",
-        "C:\maven*\bin\mvn.cmd"
+        "C:\maven*\bin\mvn.cmd",
+        "C:\Program Files\JetBrains\*\plugins\maven\lib\maven3\bin\mvn.cmd",
+        "$env:LOCALAPPDATA\Programs\JetBrains\*\plugins\maven\lib\maven3\bin\mvn.cmd"
     )
     $foundMvn = Resolve-Path $mvnPaths -ErrorAction SilentlyContinue | Select-Object -First 1
 

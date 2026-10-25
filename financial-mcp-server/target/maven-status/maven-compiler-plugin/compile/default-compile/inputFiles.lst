@@ -1,0 +1,8 @@
+D:\Pro\financial-mcp-server\src\main\java\com\omnichannel\financial\server\config\McpServerConfig.java
+D:\Pro\financial-mcp-server\src\main\java\com\omnichannel\financial\server\dto\FinancialMetricsDto.java
+D:\Pro\financial-mcp-server\src\main\java\com\omnichannel\financial\server\dto\NewsSearchResultDto.java
+D:\Pro\financial-mcp-server\src\main\java\com\omnichannel\financial\server\entity\CompanyFinancials.java
+D:\Pro\financial-mcp-server\src\main\java\com\omnichannel\financial\server\FinancialMcpServerApplication.java
+D:\Pro\financial-mcp-server\src\main\java\com\omnichannel\financial\server\repository\CompanyFinancialsRepository.java
+D:\Pro\financial-mcp-server\src\main\java\com\omnichannel\financial\server\tools\DatabaseFinancialTools.java
+D:\Pro\financial-mcp-server\src\main\java\com\omnichannel\financial\server\tools\WebSearchTools.java

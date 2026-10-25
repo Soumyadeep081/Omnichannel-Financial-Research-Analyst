@@ -1,0 +1,10 @@
+com\omnichannel\financial\server\tools\DatabaseFinancialTools.class
+com\omnichannel\financial\server\dto\NewsSearchResultDto$NewsItem.class
+com\omnichannel\financial\server\FinancialMcpServerApplication.class
+com\omnichannel\financial\server\tools\WebSearchTools.class
+com\omnichannel\financial\server\dto\FinancialMetricsDto.class
+com\omnichannel\financial\server\config\McpServerConfig.class
+com\omnichannel\financial\server\repository\CompanyFinancialsRepository.class
+com\omnichannel\financial\server\dto\FinancialMetricsDto$QuarterlySummary.class
+com\omnichannel\financial\server\entity\CompanyFinancials.class
+com\omnichannel\financial\server\dto\NewsSearchResultDto.class
